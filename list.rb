@@ -11,6 +11,10 @@ class List
         contact = Contact.new(hash)
         @contacts.push(contact)
     end
+
+    def show_one(name)
+        contactFound = @contacts.fetch(name)             
+    end
     
     def show_all
         if @contacts.length >0
@@ -21,6 +25,15 @@ class List
             puts "nobody to show"
         end
     end
+
+    def delete_contact(name)
+        indexFound = @contacts.find_index(name)
+        @contacts.delete_at(indexFound.to_i)
+    end
+    def delete_all
+        @contacts.clear
+    end
+    
 end
 # list =List.new
 # list.add_contact(name:"sofia", number:"66666666")
