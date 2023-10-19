@@ -12,7 +12,7 @@ class ContactApp
         puts "hi, welcome to the contact app"
         loop do
             puts "a - to add a contact"
-           # puts "n - to show one contact's number"
+            puts "n - to show one contact's number"
             puts "s - to show all the contacts"
             puts "d - to delete one contact"
             puts "g - to delete all contacts"
@@ -27,12 +27,11 @@ class ContactApp
                 newContact = {name: inputName, number: inputNumber}                
                 @contacts.add_contact(newContact)
                 puts "#{newContact} was added"
-            # when "n"
-            #     print "Insert contact name: "
-            #     name= gets.chomp
-            #     contactFound = @contacts.show_one(name)
-            #     puts contactFound
-                #puts "Number from #{contactFound.name} is #{contactFound.number}"
+            when "n"
+                print "Insert contact name: "
+                name= gets.chomp                
+                contactFound = @contacts.show_one(name)
+                puts contactFound               
             when "s"
                 @contacts.show_all
             when "d"

@@ -12,8 +12,9 @@ class List
         @contacts.push(contact)
     end
 
-    def show_one(name)
-        contactFound = @contacts.fetch(name)             
+    def show_one(name)            
+        index=@contacts.index {|contact| contact.name==name}    
+        return @contacts[index]       
     end
     
     def show_all
@@ -27,14 +28,11 @@ class List
     end
 
     def delete_contact(name)
-        indexFound = @contacts.find_index(name)
-        @contacts.delete_at(indexFound.to_i)
+        index=@contacts.index {|contact| contact.name==name}  
+        @contacts.delete_at(index)
     end
     def delete_all
         @contacts.clear
     end
     
 end
-# list =List.new
-# list.add_contact(name:"sofia", number:"66666666")
-# list.show_all
